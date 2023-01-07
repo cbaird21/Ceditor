@@ -24,11 +24,10 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: 'client/src-sw.js',
         swDest: 'service-worker.js',
       }),
       new MiniCssExtractPlugin(),
-      new WorkboxPlugin.GenerateSW(),
       new WebpackPwaManifest(),
     ],
 
