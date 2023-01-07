@@ -24,12 +24,17 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new InjectManifest({
-        swSrc: 'client/src-sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
       new MiniCssExtractPlugin(),
-      new WebpackPwaManifest(),
-    ],
+      new WebpackPwaManifest({
+        name: 'My Progressive Web App',
+        short_name: 'Ceditor',
+        description: 'My awesome text editor!',
+        background_color: '#ffffff',
+        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      })],
 
     module: {
       rules: [
