@@ -24,24 +24,23 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swSrc: './sw.js',
+        swDest: './sw.js',
       }),
       new WebpackPwaManifest({
         name: 'My Progressive Web App',
         short_name: 'Ceditor',
         description: 'My awesome text editor!',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        start_url: "./",
+        publicPath: "./",
         icons: [
           {
-            src: path.resolve('./client/favicon.ico'),
-            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            // multiple sizes
+            destination: path.join("assets", "icons"),
           },
-          {
-            src: path.resolve('./client/src/images/logo.png'),
-            size: '1024x1024' // you can also use the specifications pattern
-          }
         ]
       }),
       new MiniCssExtractPlugin()],
