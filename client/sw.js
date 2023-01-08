@@ -39,7 +39,5 @@ const assetCache = new CacheFirst({
   ],
 });
 registerRoute(({ request }) => request.destination === "image", assetCache);
-warmStrategyCache({ urls, strategy });
 offlineFallback();
-
-registerRoute();
+// registerRoute();
