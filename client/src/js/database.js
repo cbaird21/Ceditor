@@ -49,7 +49,7 @@ export const getDb = async () => {
   // Get confirmation of the request.
 
   const result = await store.getAll();
-  console.log('data from database is' `${JSON.stringigy(result)}`);
+  console.log('data from database is' `${JSON.stringify(result)}`);
   return result.value;
 
 }
